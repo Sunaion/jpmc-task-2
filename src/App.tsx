@@ -43,18 +43,18 @@ class App extends Component<{}, IState> {
     let count = 0;
     const intervalID = setInterval(() => {
         DataStreamer.getData((serverResponds: ServerRespond[]) => {
-      // Update the state by creating a new array of data that consists of
-      // Previous data in the state and the new data from server
+          // Update the state by creating a new array of data that consists of
+          // Previous data in the state and the new data from server
             this.setState({
                 data: serverResponds,
                 showGraph: true
             });
-    });
-    count++;
-    if(count > 1000){
-        clearInterval(intervalID);
-    }
-    }, 100);
+        });
+        count++;
+        if(count > 1000){
+            clearInterval(intervalID);
+        }
+    }, 200);
   }
 
   /**
